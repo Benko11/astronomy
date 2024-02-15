@@ -1,0 +1,8 @@
+Usc_Settings: 1
+Never_Suspend: false
+Serial_Mode: UART_FIXED_BAUD_RATE
+Fixed_Baud_Rate: 9600
+Serial_Timeout: 0
+Enable_Crc: false
+Serial_Device_Number: 12
+Serial_Mini_Ssc_Offset: 0

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>astronomy</id>
+    <version>0.1.0</version>
+    <title>CoverControl</title>
+    <authors>Benjamin Bergstrom</authors>
+    <description>Telescope automated remote control in a CLI and GUI form</description>
+    <copyright>2023-2024</copyright>
+    <repository type="git" url="https://github.com/Benko11/astronomy" />
+    <dependencies>
+      <group targetFramework="net7.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\benko\source\repos\astronomy\bin\Debug\net7.0\astronomy.runtimeconfig.json" target="lib\net7.0\astronomy.runtimeconfig.json" />
+    <file src="C:\Users\benko\source\repos\astronomy\bin\Debug\net7.0\astronomy.dll" target="lib\net7.0\astronomy.dll" />
+  </files>
+</package>

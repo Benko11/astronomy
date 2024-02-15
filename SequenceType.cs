@@ -1,0 +1,1 @@
+﻿enum SequenceType { OPEN, CLOSE };

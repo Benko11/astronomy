@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UscSettings version="1">
+  <NeverSuspend>false</NeverSuspend>
+  <SerialMode>UART_FIXED_BAUD_RATE</SerialMode>
+  <FixedBaudRate>9600</FixedBaudRate>
+  <SerialTimeout>0</SerialTimeout>
+  <EnableCrc>false</EnableCrc>
+  <SerialDeviceNumber>12</SerialDeviceNumber>
+  <SerialMiniSscOffset>0</SerialMiniSscOffset>
+  <Script ScriptDone="false" />
+  <Sequences>
+    <Sequence name="Close">
+      <Frame name="Frame 0" duration="2000">6000 0 0 6000</Frame>
+      <Frame name="Frame 1" duration="500">4000 0 0 7000</Frame>
+    </Sequence>
+    <Sequence name="Open">
+      <Frame name="Frame 0" duration="500">4000 0 0 7000</Frame>
+      <Frame name="Frame 1" duration="2000">6000 0 0 6000</Frame>
+    </Sequence>
+  </Sequences>
+</UscSettings>

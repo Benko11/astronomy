@@ -1,0 +1,12 @@
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\astronomy.exe
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\astronomy.dll
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\astronomy.deps.json
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\astronomy.runtimeconfig.json
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\astronomy.pdb
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\UsbWrapper.dll
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\Usc.dll
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\Sequencer.dll
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\Bytecode.dll
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\UsbWrapper.pdb
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\Usc.pdb
+C:\Users\benko\source\repos\astronomy\bin\Release\net7.0\publish\Sequencer.pdb
