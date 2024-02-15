@@ -1,7 +1,5 @@
 # CoverControl
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Telescope automated remote control in a CLI form.
 
 ![](application.png)
@@ -35,9 +33,3 @@ User can specify a workload to be executed upon sunset or sunrise (which are dyn
 This contains all the values used throughout the application in XML files, but they also allow customization of servo acceleration and speed, as well as specifying custom ranges for the hardware in question. User can also add custom properties or reset all of the values to their defaults. Lastly, they can use it to customize the longitude and latitude of their telescope.
 
 ![](global.png)
-=======
-Telescope automated remote control in a CLI and GUI form
->>>>>>> d00d72e259d691af6210ac8032b39a4167b7a7cc
-=======
-Telescope automated remote control in a CLI and GUI form
->>>>>>> d00d72e259d691af6210ac8032b39a4167b7a7cc
