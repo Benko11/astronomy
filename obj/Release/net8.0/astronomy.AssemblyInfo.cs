@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Benjamin Bergstrom")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("2023-2024")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Telescope automated remote control in a CLI and GUI form")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.2.0.0")]

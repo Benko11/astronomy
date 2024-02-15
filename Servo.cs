@@ -38,10 +38,10 @@ namespace astronomy
                 Usc device = Connect();
                 callback(device);
                 Disconnect(device);
-            }
+        }
             catch (InvalidOperationException ex)
             {
-                Console.WriteLine($"It appears you have not plugged in the equipment ({ex.Message})\n");
+                Console.WriteLine($"It appears you have not plugged in the equipment. Alternatively, you may need to install the drivers ({ex.Message})\n");
             }
             catch (Exception ex)
             {

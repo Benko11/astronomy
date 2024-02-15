@@ -82,15 +82,18 @@ namespace astronomy.Performables
                     string parTime = Utils.GetInput("Execution time (hhmm)", input => input.Trim().Length == 4);
                     DailyScheduler useTime = FindRightSchedule(CompareTimes(parTime, $"{hour.PadLeft(2, '0')}{minute.PadLeft(2, '0')}"));
 
+                    Console.WriteLine(CompareTimes(parTime, $"{hour.PadLeft(2, '0')}{minute.PadLeft(2, '0')}"));
                     var xml = new Xml();
                     xml.SetPathInteractive();
 
                     string mode = Utils.GetInput("(O)pen/(C)lose sequence", input => input.Trim().ToLower() == "o" || input.Trim().ToLower() == "c", input => input.Trim().ToLower());
 
                     var sequence = mode == "o" ? xml.GetSequence(SequenceType.OPEN) : xml.GetSequence(SequenceType.CLOSE);
-
+                    Console.WriteLine(sequence.Count);
+                    
                     Console.WriteLine($"Executing code at {parTime} ...");
                     var ts = new DateTime(useTime.Year, useTime.Month, useTime.Day, int.Parse(parTime.Substring(0, 2)), int.Parse(parTime.Substring(2)), 0);
+                   
                     RunAt(ts, () =>
                     {
                         Servo servo = new();

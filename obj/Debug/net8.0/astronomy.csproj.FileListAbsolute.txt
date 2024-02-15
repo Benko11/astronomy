@@ -21,3 +21,4 @@ C:\Users\shit\astronomy\obj\Debug\net8.0\refint\astronomy.dll
 C:\Users\shit\astronomy\obj\Debug\net8.0\astronomy.pdb
 C:\Users\shit\astronomy\obj\Debug\net8.0\astronomy.genruntimeconfig.cache
 C:\Users\shit\astronomy\obj\Debug\net8.0\ref\astronomy.dll
+C:\Users\shit\astronomy\obj\Debug\net8.0\astronomy.sourcelink.json

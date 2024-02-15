@@ -35,14 +35,7 @@ namespace astronomy.Performables
                 Console.WriteLine("r) Reset all settings");
                 Console.WriteLine("x) Exit");
 
-                string userOption = Utils.GetInput("Select option", input => input != "" && input != null, input => input.Trim());
-
-                string? raw = Console.ReadLine();
-
-                if (raw == "" || raw == null) continue;
-                userOption = raw.Trim();
-
-
+                string userOption = Utils.GetInput("Select option", input => input != "" && input != null, input => input.Trim().ToLower());
                 if (userOption.Equals("x", StringComparison.CurrentCultureIgnoreCase))
                     break;
 

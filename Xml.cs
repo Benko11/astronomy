@@ -17,7 +17,7 @@ namespace astronomy
 
         public string SetPathInteractive(string defaultPath = "C:\\Users\\benko\\Downloads\\maestro_settings.txt")
         {
-            string path = Utils.GetInput("XML configuration file path", input => true);
+            path = Utils.GetInput("XML configuration file path", input => true);
 
             if (path == "" || path == null)
                 path = defaultPath;
@@ -42,6 +42,7 @@ namespace astronomy
 
         public List<FrameConfiguration>? GetSequence(SequenceType? type = null)
         {
+            Console.WriteLine("Path:" + path);
             if (path == null) return null;
 
             List<FrameConfiguration> seq = new();
@@ -116,6 +117,11 @@ namespace astronomy
 
         public void RunFrames(List<FrameConfiguration> configurations, Usc device)
         {
+            foreach (FrameConfiguration config in configurations)
+            {
+                Console.WriteLine(config.ToString());
+            }
+
             foreach (FrameConfiguration configuration in configurations)
             {
                 var (_, duration, positions) = configuration;
