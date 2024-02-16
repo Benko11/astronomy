@@ -10,6 +10,7 @@ namespace Astronomy
             char userOption;
 
             while (true) {
+                Console.WriteLine("CoverControl");
                 Console.WriteLine("0) Relay controls (external application)");
                 Console.WriteLine("1) Control servo motors");
                 Console.WriteLine("2) Execute XML sequence");

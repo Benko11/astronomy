@@ -41,7 +41,7 @@ namespace astronomy.Performables
 
                 if (userOption.Equals("r", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    var confirmation = Utils.GetInput("WARNING! This will remove all of your settings and custom properties and replace them with default values! Are you sure? (y/n)", (_) => true, (input) => input.Trim().ToLower());
+                    var confirmation = Utils.GetInput("WARNING! This will remove all of your settings and custom properties and replace them with default values! You will have to manually set the path for the relay application again! Are you sure? (y/n)", (_) => true, (input) => input.Trim().ToLower());
 
                     if (confirmation == "y")
                     {

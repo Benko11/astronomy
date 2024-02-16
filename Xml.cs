@@ -17,17 +17,12 @@ namespace astronomy
 
         public string SetPathInteractive(string defaultPath = "C:\\Users\\benko\\Downloads\\maestro_settings.txt")
         {
-            path = Utils.GetInput("XML configuration file path", input => true);
+            path = Utils.GetInput("XML configuration file path", input => true, input => input.Replace("\"", ""));
 
             if (path == "" || path == null)
                 path = defaultPath;
 
             return path;
-        }
-
-        public string GetChannels(XmlNode node)
-        {
-            return "murder";
         }
 
         private string GetAttributeValue(XmlNode node, string name) {
@@ -116,11 +111,6 @@ namespace astronomy
 
         public void RunFrames(List<FrameConfiguration> configurations, Usc device)
         {
-            foreach (FrameConfiguration config in configurations)
-            {
-                Console.WriteLine(config.ToString());
-            }
-
             foreach (FrameConfiguration configuration in configurations)
             {
                 var (_, duration, positions) = configuration;
@@ -143,8 +133,6 @@ namespace astronomy
             path = SetPathInteractive();
             openSequence = GetSequence(SequenceType.OPEN);
             closeSequence = GetSequence(SequenceType.CLOSE);
-
-            //var c = GetChannels();
 
             char userSelection;
             while ((userSelection = menu()) != 'x') {

@@ -125,7 +125,7 @@
     "C:\\Users\\shit\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "0.2.0",
+    "version": "1.0.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\shit\\astronomy\\astronomy.csproj",
       "projectName": "astronomy",

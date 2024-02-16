@@ -22,7 +22,6 @@ namespace astronomy
             ["Max_Range_Servo"] = "8000",
             ["Acceleration_Servo"] = "100",
             ["Speed_Servo"] = "0",
-            ["Available_Channels"] = "6",
             ["Glong"] = "17.39519",
             ["Glat"] = "48.22027"
         };

@@ -1,0 +1,12 @@
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\astronomy.exe
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\astronomy.dll
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\astronomy.deps.json
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\astronomy.runtimeconfig.json
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\astronomy.pdb
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\UsbWrapper.dll
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\Usc.dll
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\UsbWrapper.pdb
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\UsbWrapper.xml
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\Usc.pdb
+C:\Users\shit\astronomy\bin\Release\net7.0\publish\Usc.xml

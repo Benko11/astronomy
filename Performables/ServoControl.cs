@@ -6,46 +6,16 @@ namespace astronomy.Performables
 {
     internal class ServoControl : IPerformable
     {
-        private static byte FindServo()
+        private static byte FindServo(ushort availableChannels)
         {
-            char[] selection;
+            byte selection = Utils.GetInput($"Select servo channel (0-{availableChannels - 1})", input => input[0] >= '0' && input[0] <= availableChannels + 48 - 1, input => (byte)(Encoding.ASCII.GetBytes(input)[0] - 48));
 
-            do
-            {
-                Console.Write("Select servo channel (0-7): ");
-                string str;
-                str = Console.ReadLine() ?? "";
-                selection = str.ToCharArray();
-                if (str.Equals(""))
-                {
-                    selection = new char[1];
-                    selection[0] = (char)0;
-                    continue;
-                }
-
-            }
-            while (selection[0] < '0' || selection[0] > '9');
-
-            return (byte)(Encoding.ASCII.GetBytes(selection)[0] - 48);
+            return selection;
         }
 
         private static ushort FindTarget(ushort min, ushort max)
         {
-            ushort targetNumber;
-            string str;
-            do
-            {
-                Console.Write($"Target ({min}-{max}): ");
-                str = Console.ReadLine() ?? "";
-
-                bool check = ushort.TryParse(str, out _);
-                if (!check || str.Equals(""))
-                {
-                    targetNumber = 0;
-                    continue;
-                }
-                targetNumber = ushort.Parse(str);
-            } while (targetNumber < min || targetNumber > max);
+            ushort targetNumber = Utils.GetInput($"Target ({min}-{max})", input => ushort.TryParse(input, out _) && ushort.Parse(input) >= min && ushort.Parse(input) <= max, input => ushort.Parse(input));
 
             return targetNumber;
         }
@@ -55,7 +25,7 @@ namespace astronomy.Performables
             var servo = new Servo();
             servo.Execute(device =>
             {
-                byte servoNumber = FindServo();
+                byte servoNumber = FindServo(device.servoCount);
 
                 ushort targetNumber = FindTarget(UInt16.Parse(Env.GetValue("Min_Range_Servo")), UInt16.Parse(Env.GetValue("Max_Range_Servo")));
 
