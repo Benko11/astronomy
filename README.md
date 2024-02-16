@@ -71,5 +71,3 @@ Používateľ môže určiť pracovnú záťaž, ktorá sa má vykonať pri záp
 Obsahujú všetky hodnoty používané v celej aplikácii v súboroch XML, ale umožňujú aj prispôsobenie zrýchlenia a rýchlosti servopohonov, ako aj určenie vlastných rozsahov pre príslušný hardvér (ako ďaleko sa môže zariadenie pohybovať, čo je podmienené používaným hardvérom). Používateľ môže tiež pridať vlastné vlastnosti alebo resetovať všetky hodnoty na ich predvolené hodnoty. Nakoniec ho môžu použiť na prispôsobenie zemepisnej dĺžky a šírky svojho teleskopu, ktoré sa používajú na dynamický výpočet času východu a západu Slnka.
 
 ![](global.png)
-
-Translated with DeepL.com (free version)
