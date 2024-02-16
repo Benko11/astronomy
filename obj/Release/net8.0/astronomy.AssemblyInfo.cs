@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("2023-2024")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Telescope automated remote control in a CLI and GUI form")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.2.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.2.0+7053dac812aa342175911c5ef9ccca30d15ccf75")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.2.0+bf6a1699c3743be27cc144b63dc467a6da0fc780")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoverControl")]
 [assembly: System.Reflection.AssemblyTitleAttribute("astronomy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.2.0.0")]

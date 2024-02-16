@@ -42,7 +42,6 @@ namespace astronomy
 
         public List<FrameConfiguration>? GetSequence(SequenceType? type = null)
         {
-            Console.WriteLine("Path:" + path);
             if (path == null) return null;
 
             List<FrameConfiguration> seq = new();

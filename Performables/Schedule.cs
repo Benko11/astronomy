@@ -89,8 +89,7 @@ namespace astronomy.Performables
                     string mode = Utils.GetInput("(O)pen/(C)lose sequence", input => input.Trim().ToLower() == "o" || input.Trim().ToLower() == "c", input => input.Trim().ToLower());
 
                     var sequence = mode == "o" ? xml.GetSequence(SequenceType.OPEN) : xml.GetSequence(SequenceType.CLOSE);
-                    Console.WriteLine(sequence.Count);
-                    
+
                     Console.WriteLine($"Executing code at {parTime} ...");
                     var ts = new DateTime(useTime.Year, useTime.Month, useTime.Day, int.Parse(parTime.Substring(0, 2)), int.Parse(parTime.Substring(2)), 0);
                    
