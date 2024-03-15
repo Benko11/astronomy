@@ -3,20 +3,41 @@ using astronomy.Performables;
 
 namespace Astronomy
 {
+    public delegate void PerformableAction();
+
+    struct MenuEntry
+    {
+        public String title;
+        public PerformableAction action;
+
+        public MenuEntry(String title, PerformableAction action)
+        {
+            this.title = title;
+            this.action = action;
+        }
+    }
+
     internal class Index
     {
         static void Main()
         {
+            List<MenuEntry> list = new List<MenuEntry>();
+            list.Add(new MenuEntry("Relay controls (external application)", RelayControls.Perform));
+            list.Add(new MenuEntry("Control servo motors", ServoControl.Perform));
+            list.Add(new MenuEntry("Execute XML sequence", ParseXML.Perform));
+            list.Add(new MenuEntry("Schedule", Schedule.Perform));
+            list.Add(new MenuEntry("Global settings", GlobalSettings.Perform));
+            
+
             char userOption;
+
 
             while (true) {
                 Console.WriteLine("CoverControl");
-                Console.WriteLine("0) Relay controls (external application)");
-                Console.WriteLine("1) Control servo motors");
-                Console.WriteLine("2) Execute XML sequence");
-                Console.WriteLine("3) Create XML sequence");
-                Console.WriteLine("4) Schedule");
-                Console.WriteLine("5) Global settings");
+                for (int i = 0; i < list.Count; i++)
+                {
+                    Console.WriteLine($"{i}) {list[i].title}");
+                }
                 Console.WriteLine("x) Exit");
                 Console.Write("Enter option: ");
                 string? raw = Console.ReadLine();
@@ -26,12 +47,15 @@ namespace Astronomy
 
                 Console.WriteLine();
 
-                if (userOption == '0') RelayControls.Perform();
-                if (userOption == '1') ServoControl.Perform();
-                if (userOption == '2') ParseXML.Perform();
-                if (userOption == '3') CreateXML.Perform();
-                if (userOption == '4') Schedule.Perform();
-                if (userOption == '5') GlobalSettings.Perform();
+                int index = userOption - '0';
+                if (index >= 0 && index < list.Count)
+                {
+                    list[index].action();
+                } else
+                {
+                    Console.WriteLine($"Invalid input option, please type in number between 0-{list.Count - 1}\n");
+                }
+
                 if (char.ToLower(userOption) == 'x')
                 {
                     Exit.Perform();

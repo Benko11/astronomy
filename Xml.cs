@@ -15,12 +15,23 @@ namespace astronomy
         {
         }
 
-        public string SetPathInteractive(string defaultPath = "C:\\Users\\benko\\Downloads\\maestro_settings.txt")
+        public string SetPathInteractive()
         {
-            path = Utils.GetInput("XML configuration file path", input => true, input => input.Replace("\"", ""));
+            while (true)
+            {
+                string description = "XML configuration file path";
+                var lastPath = Env.GetValue("Last_Path");
 
-            if (path == "" || path == null)
-                path = defaultPath;
+                if (lastPath != null && lastPath != "" && lastPath != Env.UNDEFINED_VALUE)
+                    description += $" ({lastPath})";
+
+                path = Utils.GetInput(description, input => true, input => input.Replace("\"", ""));
+                if (path != null && path != "" && Utils.IsValidWindowsPath(path) && File.Exists(path)) break; 
+                
+                Console.WriteLine("This file does not exist");
+            }
+
+            Env.SetValue("Last_Path", path);
 
             return path;
         }
@@ -74,7 +85,7 @@ namespace astronomy
             return seq;
         }
 
-        public char menu(char openOption = 'a', char closeOption = 'b')
+        public char Menu(char openOption = 'a', char closeOption = 'b')
         {
             this.openOption = openOption;
             this.closeOption = closeOption;
@@ -106,7 +117,6 @@ namespace astronomy
             } while (options.Count > 0 && !options.Contains(userInput));
 
             return userInput;
-            
         }
 
         public void RunFrames(List<FrameConfiguration> configurations, Usc device)
@@ -117,15 +127,34 @@ namespace astronomy
                 Console.WriteLine("Running frame:");
                 Console.WriteLine(configuration.ToString());
 
+                List<int> accelerations = Env.GetValue("Acceleration_Servo").Split(' ').ToList().Select(value => Int32.Parse(value)).ToList();
+                List<int> speeds = Env.GetValue("Speed_Servo").Split(' ').ToList().Select(value => Int32.Parse(value)).ToList();
+
+                if (!DeviceCountMatches(accelerations)) throw new Exception("Number of input parameters for acceleration in global.txt file does not match the servo count of the device! Please consult Global Settings to remedy this issue.");
+                if (!DeviceCountMatches(speeds)) throw new Exception("Number of input parameters for acceleration in global.txt file does not match the servo count of the device! Please consult Global Settings to remedy this issue.");
+                
                 for (byte i = 0; i < positions.Length; i++)
                 {
-                    device.setAcceleration(i, UInt16.Parse(Env.GetValue("Acceleration_Servo")));
-                    device.setSpeed(i, UInt16.Parse(Env.GetValue("Speed_Servo")));
+                    device.setAcceleration(i, (ushort) accelerations[i]);
+                    device.setSpeed(i, (ushort) speeds[i]);
                     device.setTarget(i, positions[i]);
                 }
 
                 Thread.Sleep(checked((int)duration));
             }
+        }
+
+        public int GetDeviceCount()
+        {
+            int deviceCount = -1;
+            var helper = new Servo();
+            helper.Execute(device => deviceCount = device.servoCount);
+            return deviceCount;
+        }
+
+        public bool DeviceCountMatches(List<int> values)
+        {
+            return GetDeviceCount() == values.Count;
         }
 
         public void DoStuff()
@@ -135,7 +164,7 @@ namespace astronomy
             closeSequence = GetSequence(SequenceType.CLOSE);
 
             char userSelection;
-            while ((userSelection = menu()) != 'x') {
+            while ((userSelection = Menu()) != 'x') {
                 if (userSelection == openOption && openSequence != null)
                 {
                     Servo servo = new();

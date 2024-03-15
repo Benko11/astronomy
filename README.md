@@ -30,7 +30,7 @@ User can specify a workload to be executed upon sunset or sunrise (which are dyn
 
 ## 5) Global Settings
 
-This contains all the values used throughout the application in XML files, but they also allow customization of servo acceleration and speed, as well as specifying custom ranges for the hardware in question (how far a piece of equipment may move, which is subject to a hardware in use). User can also add custom properties or reset all of the values to their defaults. Lastly, they can use it to customize the longitude and latitude of their telescope, which are both used for calculating sunrise and sunset times dynamically.
+This contains all the values used throughout the application in XML files, but they also allow customization of servo acceleration and speed, as well as specifying custom ranges for the hardware in question (how far a piece of equipment may move, which is subject to a hardware in use). User can also add custom properties or reset all of the values to their defaults. Lastly, they can use it to customize the longitude and latitude of their telescope, which are both used for calculating sunrise and sunset times dynamically. Before first use it is necessary to re
 
 ![](global.png)
 

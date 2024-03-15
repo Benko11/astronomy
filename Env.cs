@@ -4,7 +4,7 @@
     {
         private static readonly string PATH = @$"{System.Environment.GetEnvironmentVariable("USERPROFILE")}\global.txt";
         private static Dictionary<string, string> settings = [];
-        private static readonly string UNDEFINED_VALUE = "UNDEFINED_VALUE";
+        public static readonly string UNDEFINED_VALUE = "UNDEFINED_VALUE";
 
         public static Dictionary<string, string> Settings {
             get { return settings; }
