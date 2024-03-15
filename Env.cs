@@ -77,6 +77,11 @@
             settings = [];
         }
 
+        public static bool Exists(string key)
+        {
+            return GetValue(key) != null && GetValue(key) != "" && GetValue(key) != UNDEFINED_VALUE;
+        }
+
         static Env() {
             Initialize();
         }

@@ -23,7 +23,7 @@ namespace astronomy
         
         public static bool IsValidWindowsPath(string path)
         {
-            return !new[] { '<', '>', ':', '"', '/', '|', '?', '*' }.Any(c => path.Contains(c));
+            return !new[] { '<', '>', '|', '?', '*' }.Any(c => path.Contains(c));
         }
 
         public static void ChangeLineInFile(string fileName, int n, string newText)
@@ -33,10 +33,23 @@ namespace astronomy
             File.WriteAllLines(fileName, arrLine);
         }
 
-        public static void CreateMenu()
+        public static int GetDeviceCount()
         {
-            Dictionary<string, Dictionary<string, OptionWorkload>> x = new();
-            x.Add("0", new Dictionary<string, OptionWorkload>() { ["relay options"] = () => RelayControls.Perform()});
+            int deviceCount = -1;
+            var servo = new Servo();
+            servo.Execute(device => {
+                deviceCount = device.servoCount;
+            });
+            return deviceCount;
+        }
+
+        public static bool DeviceCountMatches(List<int> values)
+        {
+            return GetDeviceCount() == values.Count;
+        }
+
+        public static List<int> GetArrayedValues(string key) {
+            return Env.GetValue(key).Split(' ').ToList().Select(value => Int32.Parse(value)).ToList();
         }
     }
 }

@@ -27,10 +27,13 @@ namespace astronomy.Performables
             {
                 byte servoNumber = FindServo(device.servoCount);
 
+                List<int> accelerations = Env.GetValue("Acceleration_Servo").Split(' ').ToList().Select(value => Int32.Parse(value)).ToList();
+                List<int> speeds = Env.GetValue("Speed_Servo").Split(' ').ToList().Select(value => Int32.Parse(value)).ToList();
+
                 ushort targetNumber = FindTarget(UInt16.Parse(Env.GetValue("Min_Range_Servo")), UInt16.Parse(Env.GetValue("Max_Range_Servo")));
 
-                device.setAcceleration(servoNumber, UInt16.Parse(Env.GetValue("Acceleration_Servo")));
-                device.setSpeed(servoNumber, UInt16.Parse(Env.GetValue("Speed_Servo")));
+                device.setAcceleration(servoNumber, (ushort) accelerations[servoNumber]);
+                device.setSpeed(servoNumber, (ushort) speeds[servoNumber]);
 
                 device.setTarget(servoNumber, targetNumber);
             });

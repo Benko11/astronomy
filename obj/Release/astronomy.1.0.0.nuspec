@@ -7,7 +7,7 @@
     <authors>Benjamin Bergstrom</authors>
     <description>Telescope automated remote control in a CLI and GUI form</description>
     <copyright>2023-2024</copyright>
-    <repository type="git" url="https://github.com/Benko11/astronomy" commit="75eb71a8a4046089a20847551350ba9b7f431706" />
+    <repository type="git" url="https://github.com/Benko11/astronomy" commit="7da31729539e308f36f3ece7a80fb36c59798b6d" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Microsoft.Toolkit.Uwp.Notifications" version="7.1.3" exclude="Build,Analyzers" />

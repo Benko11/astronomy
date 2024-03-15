@@ -20,15 +20,19 @@ Enables control of specific servo motors on individual channels. It operates on 
 
 Enables execution of an arbitrary sequence provided within an XML file. User provides a path to the XML file, so that the instructions are loaded in and executed accordingly. User can specify frames for Open and Close sequences, where each frame has a name, execution length in milliseconds, and states for all of the channels. Acceleration and speed are subject to global settings that can be customized (see 5).
 
+<strike>
+
 ## 3) Create XML sequence
 
 User can create custom sequences that they can later execute. Each sequence is a succession of frames whose execution order is subject to order of user input. Each frame has a defined length in milliseconds and the states that all of the relay channels should follow. Created XML files are compatible with [Pololu Maestro Control Center](https://www.pololu.com/docs/0J40/4).
 
-## 4) Schedule
+</strike>
+
+## 3) Schedule
 
 User can specify a workload to be executed upon sunset or sunrise (which are dynamically calculated based on computer's time), or they can schedule to run certain workloads at a custom time of the day they have specified. This schedule runs intelligently, meaning it automatically picks up at the nearest instance when the time of the day will occur, either on the same day or the next day compared to computer time.
 
-## 5) Global Settings
+## 4) Global Settings
 
 This contains all the values used throughout the application in XML files, but they also allow customization of servo acceleration and speed, as well as specifying custom ranges for the hardware in question (how far a piece of equipment may move, which is subject to a hardware in use). User can also add custom properties or reset all of the values to their defaults. Lastly, they can use it to customize the longitude and latitude of their telescope, which are both used for calculating sunrise and sunset times dynamically. Before first use it is necessary to re
 

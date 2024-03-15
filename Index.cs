@@ -21,13 +21,16 @@ namespace Astronomy
     {
         static void Main()
         {
-            List<MenuEntry> list = new List<MenuEntry>();
-            list.Add(new MenuEntry("Relay controls (external application)", RelayControls.Perform));
-            list.Add(new MenuEntry("Control servo motors", ServoControl.Perform));
-            list.Add(new MenuEntry("Execute XML sequence", ParseXML.Perform));
-            list.Add(new MenuEntry("Schedule", Schedule.Perform));
-            list.Add(new MenuEntry("Global settings", GlobalSettings.Perform));
-            
+            Env.SetValue("Channel_Count", Utils.GetDeviceCount().ToString());
+
+            List<MenuEntry> list =
+            [
+                new MenuEntry("Relay controls (external application)", RelayControls.Perform),
+                new MenuEntry("Control servo motors", ServoControl.Perform),
+                new MenuEntry("Execute XML sequence", ParseXML.Perform),
+                new MenuEntry("Schedule", Schedule.Perform),
+                new MenuEntry("Global settings", GlobalSettings.Perform),
+            ];
 
             char userOption;
 
@@ -53,7 +56,7 @@ namespace Astronomy
                     list[index].action();
                 } else
                 {
-                    Console.WriteLine($"Invalid input option, please type in number between 0-{list.Count - 1}\n");
+                    if (char.ToLower(userOption) != 'x') Console.WriteLine($"Invalid input option, please type in number between 0-{list.Count - 1} or x to exit the programme\n");
                 }
 
                 if (char.ToLower(userOption) == 'x')

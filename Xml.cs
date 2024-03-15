@@ -22,10 +22,15 @@ namespace astronomy
                 string description = "XML configuration file path";
                 var lastPath = Env.GetValue("Last_Path");
 
-                if (lastPath != null && lastPath != "" && lastPath != Env.UNDEFINED_VALUE)
+                if (Env.Exists("Last_Path"))
                     description += $" ({lastPath})";
 
                 path = Utils.GetInput(description, input => true, input => input.Replace("\"", ""));
+                if (path == null || path == "")
+                {
+                    if (Env.Exists("Last_Path")) path = lastPath;
+                }
+
                 if (path != null && path != "" && Utils.IsValidWindowsPath(path) && File.Exists(path)) break; 
                 
                 Console.WriteLine("This file does not exist");
@@ -119,20 +124,18 @@ namespace astronomy
             return userInput;
         }
 
+        
         public void RunFrames(List<FrameConfiguration> configurations, Usc device)
         {
+            var accelerations = Utils.GetArrayedValues("Acceleration_Servo");
+            var speeds = Utils.GetArrayedValues("Speed_Servo");
+
             foreach (FrameConfiguration configuration in configurations)
             {
                 var (_, duration, positions) = configuration;
                 Console.WriteLine("Running frame:");
                 Console.WriteLine(configuration.ToString());
 
-                List<int> accelerations = Env.GetValue("Acceleration_Servo").Split(' ').ToList().Select(value => Int32.Parse(value)).ToList();
-                List<int> speeds = Env.GetValue("Speed_Servo").Split(' ').ToList().Select(value => Int32.Parse(value)).ToList();
-
-                if (!DeviceCountMatches(accelerations)) throw new Exception("Number of input parameters for acceleration in global.txt file does not match the servo count of the device! Please consult Global Settings to remedy this issue.");
-                if (!DeviceCountMatches(speeds)) throw new Exception("Number of input parameters for acceleration in global.txt file does not match the servo count of the device! Please consult Global Settings to remedy this issue.");
-                
                 for (byte i = 0; i < positions.Length; i++)
                 {
                     device.setAcceleration(i, (ushort) accelerations[i]);
@@ -144,21 +147,16 @@ namespace astronomy
             }
         }
 
-        public int GetDeviceCount()
-        {
-            int deviceCount = -1;
-            var helper = new Servo();
-            helper.Execute(device => deviceCount = device.servoCount);
-            return deviceCount;
-        }
-
-        public bool DeviceCountMatches(List<int> values)
-        {
-            return GetDeviceCount() == values.Count;
-        }
+    
 
         public void DoStuff()
         {
+            List<int> accelerations = Utils.GetArrayedValues("Acceleration_Servo");
+            List<int> speeds = Utils.GetArrayedValues("Speed_Servo");
+
+            if (!Utils.DeviceCountMatches(accelerations)) throw new Exception("Number of input parameters for acceleration in global.txt file does not match the servo count of the device! Please consult Global Settings to remedy this issue.");
+            if (!Utils.DeviceCountMatches(speeds)) throw new Exception("Number of input parameters for acceleration in global.txt file does not match the servo count of the device! Please consult Global Settings to remedy this issue.");
+
             path = SetPathInteractive();
             openSequence = GetSequence(SequenceType.OPEN);
             closeSequence = GetSequence(SequenceType.CLOSE);

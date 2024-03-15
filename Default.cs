@@ -20,10 +20,11 @@ namespace astronomy
             ["Serial_Mini_Ssc_Offset"] = "0",
             ["Min_Range_Servo"] = "3968",
             ["Max_Range_Servo"] = "8000",
-            ["Acceleration_Servo"] = "100",
-            ["Speed_Servo"] = "0",
+            ["Acceleration_Servo"] = "100 0 0 50 0 0",
+            ["Speed_Servo"] = "5 0 0 2 0 0",
             ["Glong"] = "17.39519",
-            ["Glat"] = "48.22027"
+            ["Glat"] = "48.22027",
+            ["Channel_Count"] = "-1"
         };
     }
 }

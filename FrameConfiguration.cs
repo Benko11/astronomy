@@ -15,7 +15,7 @@
 
         public override string ToString()
         {
-            return $"{Name}: ({string.Join(", ", Positions)}) ({Duration}ms)";
+            return $"{Name}: ({string.Join(" ", Positions)}) ({Duration}ms)";
         }
 
         public void Deconstruct(out string name, out uint duration, out ushort[] positions)
