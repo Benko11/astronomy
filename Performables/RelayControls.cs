@@ -27,9 +27,9 @@ namespace astronomy.Performables
                     exeProcess.WaitForExit();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception("Something went wrong. Please try again later.");
+                throw new Exception($"Something went wrong. Please try again later. ({ex})");
             }
         }
     }

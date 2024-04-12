@@ -3,7 +3,6 @@ C:\Users\shit\astronomy\bin\Debug\net8.0\astronomy.deps.json
 C:\Users\shit\astronomy\bin\Debug\net8.0\astronomy.runtimeconfig.json
 C:\Users\shit\astronomy\bin\Debug\net8.0\astronomy.dll
 C:\Users\shit\astronomy\bin\Debug\net8.0\astronomy.pdb
-C:\Users\shit\astronomy\bin\Debug\net8.0\Microsoft.Toolkit.Uwp.Notifications.dll
 C:\Users\shit\astronomy\bin\Debug\net8.0\UsbWrapper.dll
 C:\Users\shit\astronomy\bin\Debug\net8.0\Usc.dll
 C:\Users\shit\astronomy\bin\Debug\net8.0\UsbWrapper.pdb

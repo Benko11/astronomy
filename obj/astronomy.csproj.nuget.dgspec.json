@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\shit\\astronomy\\astronomy.csproj": {
-      "version": "1.1.0",
+      "version": "1.1.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\shit\\astronomy\\astronomy.csproj",
         "projectName": "astronomy",
@@ -44,12 +44,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.Toolkit.Uwp.Notifications": {
-              "target": "Package",
-              "version": "[7.1.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

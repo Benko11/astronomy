@@ -1,5 +1,4 @@
-﻿using Microsoft.Toolkit.Uwp.Notifications;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 
 namespace astronomy.Performables
@@ -14,9 +13,7 @@ namespace astronomy.Performables
             header.Append('\n');
             Console.WriteLine(header.ToString());
 
-
             var keys = Env.Settings.Keys;
-
             while (true)
             {
                 Console.WriteLine();
